@@ -7,7 +7,9 @@
 			<p>post by <%=post.user.username %></p>
 			<br/>
 		  <%= link_to "Edit", edit_post_path(post) %>
-		 </div>
+		  <br/>
+		  <%= link_to "Comments", post_path(post.id) %>
+		</div>
 	<% end %>
 
 <% elsif @post %>

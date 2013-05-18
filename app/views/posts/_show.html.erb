@@ -16,11 +16,11 @@
 	<h3><%= link_to @post.title, @post.url %></h3>
 	<p><%= @post.description %></p>
 
-	<%= form_tag post_comments_path(@post.id) do %>
-		<%= label_tag :comment_text %>
-		<%= text_area_tag :comment_text %>
+	<%= form_for @new_comment, url: post_comments_path(@post.id) do |f| %>
+		<%= f.label :comment_text %>
+		<%= f.text_area :comment_text, rows: "3" %>
 		<br/>
-		<%= submit_tag "Create Comment", class: "btn btn-primary" %>
+		<%= f.submit class: "btn btn-primary" %>
 	<% end %>
 
 

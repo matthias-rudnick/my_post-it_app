@@ -1,0 +1,8 @@
+	
+
+	<%= form_tag post_comments_path(@post.id) do %>
+		<%= label_tag :comment_text %>
+		<%= text_area_tag :comment_text %>
+		<br/>
+		<%= submit_tag "Create Comment", class: "btn btn-primary" %>
+	<% end %>

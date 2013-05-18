@@ -11,10 +11,24 @@
 	<% end %>
 
 <% elsif @post %>
-	<div class="span8 well">
-		<p><%= link_to @post.title, @post.url %></p>
-		<p><%= @post.description %></p>
-		<p>post by <%=@post.user.username %></p>
-	</div>
+	<h3><%= link_to @post.title, @post.url %></h3>
+	<p><%= @post.description %></p>
+
+	<%= form_tag post_comments_path(@post.id) do %>
+		<%= label_tag :comment_text %>
+		<%= text_area_tag :comment_text %>
+		<br/>
+		<%= submit_tag "Create Comment", class: "btn btn-primary" %>
+	<% end %>
+
+
+	<h5>Comments:</h5>
+
+	<% @comment.each do |comment| %>
+		<div class="span8 well">
+			<p><%= comment.comment_text %></p>
+			<p>by <%= User.find(comment.user_id).username %></p>
+		</div>
+	<% end %>
 <% end %>
 

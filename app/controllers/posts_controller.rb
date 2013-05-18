@@ -13,7 +13,6 @@ class PostsController < ApplicationController
   	@post.user_id = 1 #To Do - Put in real user
 
   	if @post.save
-      binding pry
   		flash[:notice] = "Post was successfully created."
   		redirect_to '/'
   	else #validation failure
@@ -23,6 +22,8 @@ class PostsController < ApplicationController
 
   def show 
   	@post = Post.find(params[:id])
+    @comment = @post.comments
+    @new_comment = Comment.new
   end
 
   def edit

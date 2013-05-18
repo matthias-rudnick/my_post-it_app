@@ -1,0 +1,6 @@
+	<%= form_for @comment do |f| %>
+		<%= f.label :comment_text %>
+		<%= f.text_area_tag :comment_text %>
+		<br/>
+		<%= f.submit class: "btn btn-primary" %>
+	<% end %>

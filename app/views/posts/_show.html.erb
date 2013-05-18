@@ -1,0 +1,20 @@
+<% if @posts %>
+	
+	<% @posts.each do |post| %>
+		<div class="span8 well">
+			<p><%= link_to post.title, post.url %></p>
+			<p><%= post.description %></p>
+			<p>post by <%=post.user.username %></p>
+			<br/>
+		  <%= link_to "Edit", edit_post_path(post) %>
+		 </div>
+	<% end %>
+
+<% elsif @post %>
+	<div class="span8 well">
+		<p><%= link_to @post.title, @post.url %></p>
+		<p><%= @post.description %></p>
+		<p>post by <%=@post.user.username %></p>
+	</div>
+<% end %>
+

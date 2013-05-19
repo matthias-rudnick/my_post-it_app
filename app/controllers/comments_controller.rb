@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
   		flash[:notice] = "Comment was successfully created."
   		redirect_to post_path(params[:post_id])
   	else #validation failure
-
+  			flash[:notice] = "Comment can't be blank"
+  			redirect_to post_path(params[:post_id])
   	end
 
 	end

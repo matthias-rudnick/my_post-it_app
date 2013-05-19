@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   		flash[:notice] = "Post was successfully created."
   		redirect_to '/'
   	else #validation failure
-
+      render :new
   	end
   end
 
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       flash[:notice] = "You successfully updated your post."
       redirect_to "/posts/#{@post.id}"
     else #validation failure
-
+      render :edit
     end
 
   end

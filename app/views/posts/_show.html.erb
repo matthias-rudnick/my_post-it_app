@@ -8,7 +8,7 @@
 			<br/>
 		  <%= link_to "Edit", edit_post_path(post) %>
 		  <br/>
-		  <%= link_to "Comments", post_path(post.id) %>
+		  <%= link_to "#{post.comments.count} Comments", post_path(post.id) %>
 		</div>
 	<% end %>
 
